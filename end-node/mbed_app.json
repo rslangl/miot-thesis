@@ -1,0 +1,52 @@
+{
+    "config": 
+    {
+        "lora-radio": 
+        {
+            "help": "Which radio to use (options: SX126X, SX1272, SX1276)",
+            "value": "SX1276"
+        },
+        "main_stack_size":     { "value": 2048 },
+        "lora-spi-mosi":       { "value": "PA_7" },
+        "lora-spi-miso":       { "value": "PA_6" },
+        "lora-spi-sclk":       { "value": "PB_3" },
+        "lora-cs":             { "value": "PA_15" },
+        "lora-reset":          { "value": "PC_0" },
+        "lora-dio0":           { "value": "PB_4" },
+        "lora-dio1":           { "value": "PB_1" },
+        "lora-dio2":           { "value": "PB_0" },
+        "lora-dio3":           { "value": "PC_13" },
+        "lora-dio4":           { "value": "NC" },
+        "lora-dio5":           { "value": "NC" },
+        "lora-rf-switch-ctl1": { "value": "NC" },
+        "lora-rf-switch-ctl2": { "value": "NC" },
+        "lora-txctl":          { "value": "PC_2" },
+        "lora-rxctl":          { "value": "PA_1" },
+        "lora-ant-switch":     { "value": "NC" },
+        "lora-pwr-amp-ctl":    { "value": "PC_1" },
+        "lora-tcxo":           { "value": "PA_12" }
+    },
+
+    "target_overrides": 
+    {
+        "*": 
+        {
+            "target.printf_lib":                    "std",
+            "platform.stdio-convert-newlines":      true,
+            "platform.stdio-baud-rate":             115200,
+            "platform.default-serial-baud-rate":    115200,
+            "platform.cpu-stats-enabled":           true,
+            "lora.over-the-air-activation":         true,
+            "lora.duty-cycle-on":                   true,
+            "lora.phy":                             "EU868",
+            "target.components_add":                ["SX1276"],
+            "lora.device-eui":                      "{ 0x0f, 0xd7, 0xc5, 0xc6, 0x89, 0xbe, 0x7f, 0xc0 }",
+            "lora.application-eui":                 "{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }",
+            "lora.application-key":                 "{ 0x4d, 0xdb, 0xe7, 0x5f, 0xda, 0x27, 0xe1, 0x66, 0x54, 0x93, 0xf6, 0xd3, 0xac, 0xf4, 0xc2, 0xbc }"
+        }
+
+    },
+
+    "macros": ["MBEDTLS_USER_CONFIG_FILE=\"mbedtls_lora_config.h\""]
+}
+

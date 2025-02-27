@@ -1,0 +1,36 @@
+#map {
+    width: 100%;
+    height: 1024px;
+}
+
+body {
+    font-family: 'monospace';
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#markerLayerHighlight img {
+    animation: pulse .5s infinite alternate;
+    transform-origin: center;
+}
+
+@keyframes pulse {
+    /* TODO */
+}
+
+#markerLayerOffline img {
+    animation: offline infinite;
+}
+
+@keyframes offline {
+    to { transform: grayscale(1.0); }
+}
+
+#markerLayerOnline img {
+    animation: online infinite;
+}
+
+@keyframes online {
+    to { transform: grayscale(0.0); }
+}

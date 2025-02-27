@@ -1,0 +1,3 @@
+{
+    "macros_add": [ "MBED_TICKLESS" ]
+}

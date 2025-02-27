@@ -1,0 +1,12 @@
+[Unit]
+Description=LoRaWAN gateway
+
+[Service]
+WorkingDirectory=/opt/basicstation/build-rpi-std/bin
+ExecStart=station
+SyslogIdentifier=lorawan-gateway
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

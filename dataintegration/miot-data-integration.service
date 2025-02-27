@@ -1,0 +1,11 @@
+[Unit]
+Description=MIoT Data Integration application
+
+[Service]
+ExecStart=/opt/miot-data-integration/application
+SyslogIdentifier=miot-data-integration
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
